@@ -1,4 +1,6 @@
-﻿import { defineConfig } from "astro/config";
+﻿import { defineConfig } from 'astro/config'
 
+export default defineConfig({
+    site: 'https://astronaut.github.io',
+})
 // https://astro.build/config
-export default defineConfig({});
