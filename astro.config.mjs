@@ -2,6 +2,6 @@
 
 export default defineConfig({
     site: 'https://phoosy.github.io',
-    base: 'BlogginIt',
+    base: '/BlogginIt',
 })
 // https://astro.build/config !
