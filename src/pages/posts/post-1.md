@@ -7,7 +7,7 @@ author: 'Phoosy'
 image:
     url: '../../public/phoosymischievous.png'
     alt: 'The Astro logo on a dark background with a pink glow.'
-tags: ["astro", "blogging", "learning in public"]
+tags: ["astro", "blogging", "rider", "coding"]
 ---
 # Progress Thus Far...
 I'll eventually get rid of this page or something, I just want to see it work so my brain can associate action with result/reward.

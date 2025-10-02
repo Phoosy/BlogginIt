@@ -5,9 +5,9 @@ pubDate: 2025-10-01
 description: 'How I crash course learned how Dalamud plugins work'
 author: 'Phoosy'
 image:
-    url: '../../public/phoosyexhausted.png'
+    url: '/phoosyexhausted.png'
     alt: 'An exhausted cat'
-tags: ["astro", "blogging", "learning in public"]
+tags: ["blogging", "maresync", "linux", "coding"]
 ---
 # Day 0
 Oh fuck
