@@ -1,0 +1,62 @@
+---
+title: "MareSync Saga"
+description: "Hit the ground running."
+date: "2025-10-01"
+tags:
+  - maresync
+  - linux
+  - ffxiv
+  - dalamud
+---
+
+import Callout from "@/components/Callout.astro";
+
+---
+<Callout type="info">
+  This blog is likely going to explain in way more detail than a lot of the FFXIV community cares for.
+    I am sharing this blog with people unfamiliar with Mare Synchronos, Dalamud, or even FFXIV.
+    I'm trying to accomodate for a wide audience, so sorry if I over-explain a little!
+</Callout>
+
+## Optional Details for People Outside of FFXIV
+<details close class="animate group rounded-lg border border-black/15 dark:border-white/20 px-5 py-1.5">
+    <summary
+        class="cursor-pointer rounded-t-lg px-5 py-1.5 font-medium transition-colors group-open:bg-black/5 hover:bg-black/5 dark:group-open:bg-white/5 hover:dark:bg-white/5"
+    >Click for details</summary>
+    <p>
+        The Final Fantasy XIV community is blessed with a large group of people dedicated to enhancing the game outside
+        the bounds of what's available out of the box. XIVLauncher (link) comes bundled with Dalamud, a system that hooks
+        into game functions on-the-fly to read, act on, enhance, and even completely replace elements and functionality
+        entirely. Simple things like calculating critical hit percent chance from your Crit stat to display on your
+        character sheet all the way to outright fully automated gameplay.
+
+        The Dalamud team has a list of prepackaged and reviewed sets of these plugins that meet specific criteria, like
+        not sending invalid data to the servers or performing detectable automation. Outside of this realm is where
+        Mare Synchronos comes in.
+
+        Custom Repo Plugins don't fall under the review purview of the Dalamud team, so people are free to develop plugins
+        however they like to do whatever they want. A subsection of these plugins revolve around modding, or doing
+        things like texture and model replacements, enhancing the functionality of the /gpose (screenshot tools) functions,
+        etc.. Penumbra/Glamourer, the two cornerstone plugins that handle on-the-fly texture and model editting/swaps, are
+        probably the most used plugins in the ecosystem _period_... people just want their catgirls to look pretty.
+
+        However, modding plugins (and most other plugins) by their nature are client side only - if it's not sending any data
+        to the server then no one else but you can see them. (Link to the YoshiP blog?) This is where Mare Synchronos comes in.
+
+        MareSync hooked into Penumbra/Glamourer in order to transmit the appearance data of your modded character, transfer the
+        files through a management server hosted by the developer, and send them to another person to be rendered live. This
+        massively changed the modding ecosystem of FFXIV forever and what was joking "a niche of a niche plugin" became hundreds
+        of thousands of users over its three-year lifespan. At one point near the end of its lifespan it had transferred
+        Petabytes (PLURAL) of data a month. How Cloudflare didn't freak out about it we'll never know...
+
+        Due to some back and forth with the developer I was tagged as a 'wannabe dev' in their Discord server, which gave me
+        access to see behind the curtain a little. I was already hyper-connected to a lot of info streams but it opened my eyes
+        to a lot about the community as a whole - for better and most definitely for worse. Darkarchon is pretty damn
+        knowledgeable and he held together a lot of the community whether they realized it or not.
+    </p>
+</details>
+## Day 0
+Which made the day he informed everyone he would be shutting down the service a shock to literally everyone.
+
+## Day 7
+So I started building things...
