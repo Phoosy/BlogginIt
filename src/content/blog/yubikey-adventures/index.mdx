@@ -1,0 +1,21 @@
+---
+title: "Yubikey Adventures (in Linux)"
+description: "what the fuck this isn't what I meant by passwordless auth"
+date: "2025-10-04"
+tags:
+  - linux
+  - yubikey
+  - kde
+---
+
+import Callout from "@/components/Callout.astro";
+
+---
+<Callout type="warning">
+    I'm gonna be really irritated about this one, also this is just mostly a stub to remind me to write more about this
+    in the future because this bug is crazy ridiculous
+</Callout>
+
+So yeah, apparently you can just straight up break PAM authentication by inserting pam_yubico.so in
+/etc/pam.d/system-login above the other flows regardless of what options you set. Imagine my surprise when I pulled up
+TTY, typed in my user name, hit enter, and immediately got a shell despite not even having my yubikey plugged in.
