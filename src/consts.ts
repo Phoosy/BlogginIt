@@ -8,6 +8,11 @@ export const SITE: Site = {
   NUM_PROJECTS_ON_HOMEPAGE: 3,
 };
 
+export const ABOUT: Metadata = {
+    TITLE: "About",
+    DESCRIPTION: "about me lul",
+};
+
 export const HOME: Metadata = {
   TITLE: "Home",
   DESCRIPTION: "",

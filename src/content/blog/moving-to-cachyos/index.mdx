@@ -1,0 +1,90 @@
+---
+title: "Switching to CachyOS"
+description: "Ads? In MY start menu? It's more likely than you think"
+date: "2025-09-27"
+tags:
+  - linux
+  - windows
+  - coding
+  - cachyos
+---
+
+import Callout from "@/components/Callout.astro";
+
+---
+<Callout type="warning">
+    This page isn't done yet but is more recently relevant than the other blog posts. I want to prioritize the larger
+    project first so I don't forget too many details over time. I'm going to be posting a lot about CachyOS, believe me.
+</Callout>
+
+## As usual, ADHD-lack-of-self-control kicks in..
+So I sort of got hyped up about CachyOS from watching a YouTube video...
+
+Next thing I knew I was finishing up backups to my NAS and fully wiping my boot drive on my main computer.
+
+I chose CachyOS primarily from a shoutout by Level1Techs in [this Gamersnexus YT Video](https://www.youtube.com/watch?v=5O6tQYJSEMw),
+which in particular shouted to me as the sort of thing I was interested in if I wanted to fully go all-in on Linux. I like
+the idea of being able to tinker and FAFO but still have some level of stability for the games that I play without being
+completely on my own.
+
+Save for some stumbling in figuring out how the fuck Steam compatibility on Linux _actually_ worked I've had a pretty seamless
+experience overall, which surprised me a lot. The fact I have a tech background meant I've obviously overlooked some
+weirdness that someone completely fresh-faced to this would have trouble but this is so much further along than I would
+have expected. For reference, here's a quick hardware breakdown
+ - ASRock B650E Taichi 
+ - Ryzen 7800X3D
+ - 2x16GB Corsair Vengeance @ 6000Mhz
+ - Seasonic Vertex GX-1000 PSU
+ - 2x WD Black SN850X NVME drives
+ - ASUS RTX 4080 Super ProArt 
+ - CPU under a dual rad watercooling loop (used to include GPU in old build)
+ - PCIe USB hub (adding support for LianLi case front USB)
+ - Corsair Commander XT hub
+
+And everything besides the Corsair Commander worked right out of the box without any additional tinkering at all. The
+Commander required me to grab [the OpenLinkHub packages](https://github.com/jurkovic-nikola/OpenLinkHub) and reconfigure
+my fan/pump curves because the on-board data for some reason isn't properly reading; my pump would crank up to audible (for me)
+without much load and would stay that way even as temps dropped back down below thresholds.
+
+## Steam and Compatibility Options
+I play with an OLED monitor with HDR so I greatly value having those features even in this environment. Out of the box when
+I launched either Helldivers 2 or Dying Light: The Beast I noticed all my shit was ultra washed out and I didn't even have
+the option to mess with HDR. [ProtonDB](https://www.protondb.com/) is supposed to be the salve for making this work but
+that ended up being woefully unhelpful for two reasons: a lot of people run AMD GPUs in Linux and very few people actually contribute
+back information that's useful. A lot of the posts are people copy/pasting configs from elsewhere and just shrugging when it works
+without understanding why or how it does.
+
+I did manage to get HDR to be enabled and my games are running incredibly smoothly with next to no configuring on my part, but 
+I did have to do a lot of research into what all the possible launch switches were, what they did, and why I might use them.
+I expect as I dig into other games in my library I will expand that expectation further, but time will tell.
+
+## Wayland? X11? GNOME?
+What I didn't expect was weird quirks I'd be sort of locked into based on what DE I chose. I went with KDE Plasma and it turns out
+stuff as simple as the wallet store being strangely behind in features and usability was just something everyone accepts
+or replaces. I'm still not even sure if I'm going to stick with it or try to move to something else but I thought I'd mention
+it. Plasma DE customization is very strange, as I quickly discovered even themes are hilariously fraught with missteps on trying to 
+make the work right. For example: 
+ - I found a theme I liked on (store.kde.org), but it turns out the instructions for installing it and a recommended
+package to go with it are _several years_ out of date and both aren't even developed anymore. The link used on the theme page for [Lightly](https://github.com/Mrcuve0/Aritim-Dark)
+wasn't even the official repo which is archived, but thankfully I discovered [Darkly](https://github.com/Bali10050/Darkly)
+which is actively developed as a replacement.
+ - Discord text rendering is very weird without setting launch options. Even after adding some launch args text still looks very strange
+on my other monitor and I'm not entirely sure what the fix is yet.
+ - Middle-click being paste absolutely DRIVES ME UP THE WALL because the setting to toggle it off doesn't actually even 
+toggle it off fully - THERE'S A SECOND OPTION YOU HAVE TO DISABLE TO ACTUALLY FULLY REMOVE THE FUNCTIONALITY. On top of
+that Electron apps just straight up ignore the setting and need their own launch arg OR another package install to run
+and block it from pasting all the time.
+
+## Kernel/Nvidia Driver Updates Causing Crashes
+A recent change I dealt with this weekend revolves around some kind of update going through that utterly stumped me. A post on 
+Nvidia's forums, however, highlighted what the issue might be by someone experimenting and I'm baffled.
+
+I returned to Dying Light: The Beast after a couple days of fucking around and noticed when I started getting into combat with
+a particular Volatile 'boss' I'd crash about 5-15 seconds in. This volatile would cause a lot of smoke effects, jump around,
+make noise to attract other volatiles and was a pretty cool fight, but I couldn't figure out wtf had changed to cause this.
+Trying to vibe-troubleshoot didn't get me very far, but [this post on the Nvidia forums](https://forums.developer.nvidia.com/t/580-release-feedback-discussion/341205/521)
+pointed out that limiting framerates to 60 or below seemed to fix their crashing.
+
+Hey, look at that: setting my frame limiter in the game settings to 60 from 144 stopped the crashing entirely. I don't like
+it because I have a 240Hz monitor but screw it, I can play the damn game again. No idea when this'll be fixed (and I amusingly
+haven't tested this in other games yet) but something work pointing out.
